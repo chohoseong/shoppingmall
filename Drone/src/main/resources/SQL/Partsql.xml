@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.drone.mapper.PartMapper">
+
+	<select id="selectallPart" resultType="com.example.drone.vo.PartVO">
+		SELECT 부품명 as partName, 가격 as price, 가로 as horizontal,
+			   세로 as vertical, 높이 as height, 무게 as weight
+		FROM 부품
+	</select>
+	
+</mapper>
