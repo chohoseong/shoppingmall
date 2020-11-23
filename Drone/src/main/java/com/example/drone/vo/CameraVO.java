@@ -1,4 +1,8 @@
 package com.example.drone.vo;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -17,5 +21,16 @@ public class CameraVO extends PartVO{
 	}
 	public void setPixel(int pixel) {
 		this.pixel = pixel;
+	}
+	
+	ArrayList<CameraVO> selectallParts(){
+		return partmapper.selectallCamera();
+	}
+	
+	ArrayList<Field> getattribute(){
+		ArrayList<Field> fields = new ArrayList<Field>();
+		fields.addAll(super.getattribute());
+		fields.addAll(Arrays.asList(CameraVO.class.getDeclaredFields()));
+		return fields;
 	}
 }

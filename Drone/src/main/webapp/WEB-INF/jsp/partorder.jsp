@@ -28,6 +28,8 @@
     </head>
 
 <body>
+	
+	
 
 <!-- Navigation -->
 <nav class="w3-bar w3-black">
@@ -41,9 +43,23 @@
   <a href="/logout" class="w3-button w3-bar-item" style="float: right;">Logout</a>
 </nav>
 
+<section>
+
+			<form  method="post">
+               <input type="submit" name="part" value="Frame">
+			   <input type="submit" name="part" value="Propeller">
+			   <input type="submit" name="part" value="Motor">
+			   <input type="submit" name="part" value="Camera">			
+			   <input type="submit" name="part" value="Battery">
+			   </form>
+
+
+</section>
+
 <!-- Slide Show -->
 <section>
     <table>
+    
         <tr>
           <th>Name</th>
           <th>Price</th>
