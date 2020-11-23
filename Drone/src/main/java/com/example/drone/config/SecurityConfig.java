@@ -58,6 +58,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 				.exceptionHandling()
 				.accessDeniedPage("/access-denied");
 	}
+	
+	/*
+	 * @Bean public SpringSecurityDialect springSecurityDialect(){ return new
+	 * SpringSecurityDialect(); }
+	 */
 }
 
 

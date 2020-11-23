@@ -6,18 +6,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 <body>
 
-<!-- Navigation -->
-<nav class="w3-bar w3-black">
-  <a href="/home" class="w3-button w3-bar-item">Home</a>
-  <a href="/partorder" class="w3-button w3-bar-item">PartOrder</a>
-  <a href="#tour" class="w3-button w3-bar-item">Board</a>
-  <a href="#contact" class="w3-button w3-bar-item">NewPartOrder</a>
-  <a href="#contact" class="w3-button w3-bar-item">OrderHistory</a>
-  <a href="#contact" class="w3-button w3-bar-item">ShoppingBasket</a>
+<jsp:include page="header.jsp"></jsp:include>
 
-
-  <a href="member/login" class="w3-button w3-bar-item" style="float: right;">Login</a>
-</nav>
 
 <!-- Slide Show -->
 <section>
@@ -55,17 +45,7 @@
   </article>
 </section>
 
-<!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-black w3-xlarge">
-  <a href="#"><i class="fa fa-facebook-official"></i></a>
-  <a href="#"><i class="fa fa-pinterest-p"></i></a>
-  <a href="#"><i class="fa fa-twitter"></i></a>
-  <a href="#"><i class="fa fa-flickr"></i></a>
-  <a href="#"><i class="fa fa-linkedin"></i></a>
-  <p class="w3-medium">
-  Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
-  </p>
-</footer>
+<jsp:include page="footer.jsp"></jsp:include>
 
 <script>
 // Automatic Slideshow - change image every 3 seconds

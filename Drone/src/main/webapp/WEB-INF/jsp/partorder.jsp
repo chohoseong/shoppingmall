@@ -53,6 +53,8 @@
           <th>Weight</th>
         </tr>
         
+       
+        
         <c:forEach items="${title}" var="list" varStatus="status">
         
         <tr>

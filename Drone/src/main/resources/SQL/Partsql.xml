@@ -2,10 +2,46 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.drone.mapper.PartMapper">
 
-	<select id="selectallPart" resultType="com.example.drone.vo.PartVO">
+	<select id="selectallFrame" resultType="com.example.drone.vo.FrameVO">
 		SELECT 부품명 as partName, 가격 as price, 가로 as horizontal,
-			   세로 as vertical, 높이 as height, 무게 as weight
-		FROM 부품
+			   세로 as vertical, 높이 as height, 무게 as weight, 
+			   팔길이 as armLength, 색상 as color
+		FROM 부품, 프레임
+		WHERE 부품.부품번호 = 프레임.부품번호
 	</select>
+	
+	<select id="selectallBattery" resultType="com.example.drone.vo.BatteryVO">
+		SELECT 부품명 as partName, 가격 as price, 가로 as horizontal,
+			   세로 as vertical, 높이 as height, 무게 as weight, 
+			   용량 as capacity, 전압 as voltage
+		FROM 부품, 배터리
+		WHERE 부품.부품번호 = 배터리.부품번호
+	</select>
+	
+	<select id="selectallCamera" resultType="com.example.drone.vo.CameraVO">
+		SELECT 부품명 as partName, 가격 as price, 가로 as horizontal,
+			   세로 as vertical, 높이 as height, 무게 as weight, 
+			   렌즈 as lens, 화소 as pixel
+		FROM 부품, 카메라
+		WHERE 부품.부품번호 = 카메라.부품번호
+	</select>
+	
+	<select id="selectallMotor" resultType="com.example.drone.vo.MotorVO">
+		SELECT 부품명 as partName, 가격 as price, 가로 as horizontal,
+			   세로 as vertical, 높이 as height, 무게 as weight, 
+			   KV as kv, 파워 as power
+		FROM 부품, 모터
+		WHERE 부품.부품번호 = 모터.부품번호
+	</select>
+	
+	<select id="selectallPropeller" resultType="com.example.drone.vo.PropellerVO">
+		SELECT 부품명 as partName, 가격 as price, 가로 as horizontal,
+			   세로 as vertical, 높이 as height, 무게 as weight, 
+			   재질 as material, 색상 as color
+		FROM 부품, 프로펠러
+		WHERE 부품.부품번호 = 프로펠러.부품번호
+	</select>
+	
+	
 	
 </mapper>
