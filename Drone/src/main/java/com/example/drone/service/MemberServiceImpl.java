@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.drone.mapper.MemberMapper;
 import com.example.drone.vo.MemberPrincipalVO;
+import com.example.drone.vo.MemberRoleVO;
 import com.example.drone.vo.MemberVO;
 
 @Service
@@ -28,6 +29,8 @@ public class MemberServiceImpl implements MemberService {
 		
         //DB로부터 회원 정보를 가져온다.
 		ArrayList<MemberVO> userAuthes = memberMapper.findByMemberId(id);
+		MemberRoleVO mrv = memberMapper.findRole(id);
+		userAuthes.get(0).setRole(mrv);
 		if(userAuthes.size() == 0) {
 			throw new UsernameNotFoundException("User "+id+" Not Found!");
 		}
@@ -37,16 +40,11 @@ public class MemberServiceImpl implements MemberService {
 
 	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
 	public String InsertUser(MemberVO userVO) {
-		
+		MemberRoleVO mrv = new MemberRoleVO(2,"USER");
 		userVO.setUserPass(bCryptPasswordEncoder.encode(userVO.getUserPass()));
-		userVO.setRoleName("USER");
+		userVO.setRole(mrv);
 		int flag = memberMapper.memberSave(userVO);		
 		if (flag > 0) {
-
-			String userNo = memberMapper.findMemberNo(userVO.getUserId());
-			String roleNo = memberMapper.findRoleNo(userVO.getRoleName());
-
-			memberMapper.memberRoleSave(userNo, roleNo);
 
 			return "success";
 		}	 	

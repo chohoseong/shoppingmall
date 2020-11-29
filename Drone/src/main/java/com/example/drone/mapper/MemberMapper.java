@@ -5,12 +5,15 @@ import java.util.ArrayList;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import com.example.drone.vo.MemberRoleVO;
 import com.example.drone.vo.MemberVO;
 
 @Mapper
 public interface MemberMapper {
 		//유저 정보
 		ArrayList<MemberVO> findByMemberId(@Param("userId") String id);
+		
+		MemberRoleVO findRole(@Param("userId") String id);
 
 		//유저 저장
 		int memberSave(MemberVO memberVO);

@@ -24,7 +24,7 @@ public class MemberPrincipalVO implements UserDetails {
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		
 		for(int x=0; x < memberVO.size(); x++) {
-			authorities.add(new SimpleGrantedAuthority(memberVO.get(x).getRoleName()));
+			authorities.add(new SimpleGrantedAuthority(memberVO.get(x).getRole().getRoleName()));
 		}
 		
 		return authorities;
