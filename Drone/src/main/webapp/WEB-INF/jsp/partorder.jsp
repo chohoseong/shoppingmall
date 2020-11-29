@@ -48,21 +48,19 @@
     <table>
     
         <tr>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Horizontal</th>
-          <th>Vertical</th>
-          <th>Height</th>
-          <th>Weight</th>
+            <th th:each="list : ${att}" th:text="${list.getName()}"></th> 
         </tr>
         
-        <tr th:each="list : ${title}">
-          <td th:text="${list.getPartName()}"></td>
+        <tr th:each="list : ${title}" >
+          <td th:each="ll : ${method}" th:text="${ll.invoke(list)}">
+          
+          <!--  <td th:text="${list.getPartName()}"></td>
           <td th:text="${list.getPrice()}"></td>
           <td th:text="${list.getHorizontal()}"></td>
           <td th:text="${list.getVertical()}"></td>
           <td th:text="${list.getHeight()}"></td>
-          <td th:text="${list.getWeight()}"></td>  
+          <td th:text="${list.getWeight()}"></td>-->  
+          
         </tr>
         
         

@@ -1,5 +1,7 @@
 package com.example.drone.controller;
 
+import java.lang.reflect.InvocationTargetException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,15 +25,30 @@ public class PartController {
 	}
 	
 	@RequestMapping(value = "/partorder", method = RequestMethod.POST)
-	public ModelAndView Postpartorder(@RequestParam("part") String str) {
+	public ModelAndView Postpartorder(@RequestParam("part") String str) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		ModelAndView mav = new ModelAndView();
 		
 		switch(str) {
-		case "Frame" : mav.addObject("title",partservice.selectallFrame()); break;
-		case "Propeller" : mav.addObject("title",partservice.selectallPropeller()); break;
-		case "Motor" : mav.addObject("title",partservice.selectallMotor()); break;
-		case "Battery" : mav.addObject("title",partservice.selectallBattery()); break;
-		case "Camera" : mav.addObject("title",partservice.selectallCamera()); break;
+		case "Frame" :
+			mav.addObject("att",partservice.selectallFrame().get(0).attribute());
+			mav.addObject("method",partservice.selectallFrame().get(0).method());
+			mav.addObject("title",partservice.selectallFrame()); break;
+		case "Propeller" :
+			mav.addObject("att",partservice.selectallPropeller().get(0).attribute());
+			mav.addObject("method",partservice.selectallPropeller().get(0).method());
+			mav.addObject("title",partservice.selectallPropeller()); break;
+		case "Motor" : 
+			mav.addObject("att",partservice.selectallMotor().get(0).attribute());
+			mav.addObject("method",partservice.selectallMotor().get(0).method());
+			mav.addObject("title",partservice.selectallMotor()); break;
+		case "Battery" :
+			mav.addObject("att",partservice.selectallBattery().get(0).attribute());
+			mav.addObject("method",partservice.selectallBattery().get(0).method());
+			mav.addObject("title",partservice.selectallBattery()); break;
+		case "Camera" :
+			mav.addObject("att",partservice.selectallCamera().get(0).attribute());
+			mav.addObject("method",partservice.selectallCamera().get(0).method());
+			mav.addObject("title",partservice.selectallCamera()); break;
 		}
 		return mav;
 	}
