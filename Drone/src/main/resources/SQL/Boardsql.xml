@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.drone.mapper.BoardMapper">
+
+<select id="selectallQuestion" resultType="com.example.drone.vo.BoardVO">
+		SELECT 문의번호 as Qnum , 제목 as title, 작성시간 as time, 회원ID as memberId
+		FROM 문의;		
+    </select>
+    
+   
+	
+</mapper>
